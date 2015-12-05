@@ -1,12 +1,12 @@
 function expCheck(){
-  pariTotal();
-  rakeshTotal();
+  P1Total();
+  P2Total();
   totalSpend();
   perHead();
   whoPayswho();
 }
 
-function pariTotal() {
+function P1Total() {
   var ss = SpreadsheetApp.getActiveSheet();
   var range = ss.getRange("D2:D" + ss.getLastRow()).getValues();
   //var data = s.getRange("A1:A" + s.getLastRow()).getValues(); **From where I got the idea
@@ -19,7 +19,7 @@ function pariTotal() {
     ss.getRange("K1").setValue(total);}
 }
 
-function rakeshTotal() {
+function P2Total() {
   var ss = SpreadsheetApp.getActiveSheet();
   var range = ss.getRange("H2:H" + ss.getLastRow()).getValues();
   //var data = s.getRange("A1:A" + s.getLastRow()).getValues(); **From where I got the idea
@@ -57,8 +57,8 @@ function whoPayswho(){
   if(rn == 0 && pn == 0){
        ss.getRange("K5").setValue("All good, no one pays anyone anything")}
               else if(rn > pn){
-       ss.getRange("K5").setValue("Pari has to pay Rakesh £"+ (pn*-1).toFixed(2))}
+       ss.getRange("K5").setValue("P1 has to pay P2 £"+ (pn*-1).toFixed(2))}
   else {
-    ss.getRange("K5").setValue("Rakesh has to pay Pari £"+ (rn*-1).toFixed(2))
+    ss.getRange("K5").setValue("P2 has to pay P1 £"+ (rn*-1).toFixed(2))
   }
 }
